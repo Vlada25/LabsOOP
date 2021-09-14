@@ -48,10 +48,10 @@ namespace Execution
                             Console.WriteLine($"\tСтороны трапеции: {trapeze.ViewSides()}");
                             break;
                         case 3:
-                            Console.WriteLine($"\tПериметр: {trapeze.Perimetr}");
+                            Console.WriteLine($"\tПериметр: {trapeze.GetPerimetr()}");
                             break;
                         case 4:
-                            Console.WriteLine($"\tПлощадь: {trapeze.Square}");
+                            Console.WriteLine($"\tПлощадь: {trapeze.GetSquare()}");
                             break;
                         case 5:
                             CheckPointAffiliation(trapeze);
@@ -119,8 +119,8 @@ namespace Execution
             xmlWriter.WriteStartElement("trapeze");
 
             xmlWriter.WriteAttributeString("sides", trapeze.FormatSidesForXml());
-            xmlWriter.WriteAttributeString("perimetr", Convert.ToString(trapeze.Perimetr));
-            xmlWriter.WriteAttributeString("square", Convert.ToString(trapeze.Square));
+            xmlWriter.WriteAttributeString("perimetr", Convert.ToString(trapeze.GetPerimetr()));
+            xmlWriter.WriteAttributeString("square", Convert.ToString(trapeze.GetSquare()));
 
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();

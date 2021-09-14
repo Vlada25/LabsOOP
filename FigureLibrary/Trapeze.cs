@@ -2,7 +2,7 @@
 
 namespace FigureLibrary
 {
-    public class Trapeze
+    public class Trapeze : IFigure
     {
         const int IndexSide1 = 0,
             IndexSide2 = 1,
@@ -12,8 +12,6 @@ namespace FigureLibrary
         private readonly double x1;
         private readonly double x2;
         private readonly double[] sides = new double[4];
-        public double Perimetr { get; }
-        public double Square { get; }
 
         /// <summary>
         /// Constructor
@@ -25,9 +23,7 @@ namespace FigureLibrary
             this.x1 = x1;
             this.x2 = x2;
             CheckExistance();
-            FindSides();
-            Perimetr = FindPerimetr();
-            Square = FindSquare();
+            GetSides();
         }
 
         /// <summary>
@@ -44,7 +40,7 @@ namespace FigureLibrary
         /// <summary>
         /// Searching values of sides
         /// </summary>
-        private void FindSides()
+        private void GetSides()
         {
             sides[IndexSide1] = Math.Abs(x2 - x1); // ось Ох
             sides[IndexSide2] = Func(x1);
@@ -56,7 +52,7 @@ namespace FigureLibrary
         /// Searching perimetr
         /// </summary>
         /// <returns> Perimetr </returns>
-        private double FindPerimetr()
+        public double GetPerimetr()
         {
             double p = 0;
 
@@ -72,7 +68,7 @@ namespace FigureLibrary
         /// Searching value of square
         /// </summary>
         /// <returns> Square </returns>
-        private double FindSquare()
+        public double GetSquare()
         {
             return Math.Round(CountIntegral(), 3);
         }
