@@ -6,18 +6,14 @@ namespace Execution
 {
     class Program
     {
-        const string Filepath = @"..\myXmlFile.xml";
-        static XmlWriter xmlWriter;
-
         static void Main(string[] args)
         {
             try
             {
-                xmlWriter = XmlWriter.Create(Filepath);
                 Trapeze trapeze = Create();
 
                 int flag = 0;
-                while (flag != 7)
+                while (flag != 6)
                 {
                     Console.WriteLine("\n\t╔═══════════════════════════════════════════════════════════╗");
                     Console.WriteLine("\t║                             МЕНЮ                          ║");
@@ -32,9 +28,7 @@ namespace Execution
                     Console.WriteLine("\t╟─────┼─────────────────────────────────────────────────────╢");
                     Console.WriteLine("\t║  5  │           Проверить принадлежность точки            ║");
                     Console.WriteLine("\t╟─────┼─────────────────────────────────────────────────────╢");
-                    Console.WriteLine("\t║  6  │            Сохранить данные в xml-файл              ║");
-                    Console.WriteLine("\t╟─────┼─────────────────────────────────────────────────────╢");
-                    Console.WriteLine("\t║  7  │                      Выход                          ║");
+                    Console.WriteLine("\t║  6  │                      Выход                          ║");
                     Console.WriteLine("\t╚═══════════════════════════════════════════════════════════╝");
 
                     flag = Convert.ToInt32(Console.ReadLine());
@@ -57,9 +51,6 @@ namespace Execution
                             CheckPointAffiliation(trapeze);
                             break;
                         case 6:
-                            WriteToXml(trapeze);
-                            break;
-                        case 7:
                             Console.WriteLine("\tПрограмма завершена");
                             break;
                         default:
@@ -108,25 +99,5 @@ namespace Execution
                 Console.WriteLine("\tТочка НЕ принадлежит трапеции");
             }
         }
-
-        /// <summary>
-        /// Writing trapeze info to xml-file
-        /// </summary>
-        /// <param name="trapeze"></param>
-        static void WriteToXml(Trapeze trapeze)
-        {
-            xmlWriter.WriteStartDocument();
-            xmlWriter.WriteStartElement("trapeze");
-
-            xmlWriter.WriteAttributeString("sides", trapeze.FormatSidesForXml());
-            xmlWriter.WriteAttributeString("perimetr", Convert.ToString(trapeze.GetPerimetr()));
-            xmlWriter.WriteAttributeString("square", Convert.ToString(trapeze.GetSquare()));
-
-            xmlWriter.WriteEndDocument();
-            xmlWriter.Close();
-
-            Console.WriteLine("\tИнформация записана");
-        }
-
     }
 }
