@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FigureLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:FigureLibrary.Trapeze.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x1"> Point 1 on the Ox axis </param>
+            <param name="x2"> Point 2 on the Ox axis </param>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.CheckExistance">
+            <summary>
+            Checking existanse of trapeze
+            </summary>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.GetSides">
+            <summary>
+            Searching values of sides
+            </summary>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.GetPerimetr">
+            <summary>
+            Searching perimetr
+            </summary>
+            <returns> Perimetr </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.GetSquare">
+            <summary>
+            Searching value of square
+            </summary>
+            <returns> Square </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.Func(System.Double)">
+            <summary>
+            Hyperbolic function
+            </summary>
+            <param name="x"> x parametr </param>
+            <returns> y parametr </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.CountIntegral">
+            <summary>
+            Counting value of integral
+            </summary>
+            <returns> Value of integral </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.IsPointBelong(System.Double,System.Double)">
+            <summary>
+            Checking affiliation of point
+            </summary>
+            <param name="x"> x coordinate </param>
+            <param name="y"> y coordinate </param>
+            <returns> Is point belong (true or false) </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.ViewSides">
+            <summary>
+            Viewing values of sides
+            </summary>
+            <returns> Sides values </returns>
+        </member>
+        <member name="M:FigureLibrary.Trapeze.FormatSidesForXml">
+            <summary>
+            Shaping string with values of sides to write them to xml-file
+            </summary>
+            <returns> String sides </returns>
+        </member>
+    </members>
+</doc>
