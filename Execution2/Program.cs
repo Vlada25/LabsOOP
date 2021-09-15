@@ -66,7 +66,7 @@ namespace Execution2
             MyArray myArray3 = myArray1 + myArray2;
 
             Console.WriteLine("\tРезультат сложения массивов: ");
-            Console.WriteLine(myArray3.ToString());
+            Console.WriteLine("\t" + myArray3.ToString());
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Execution2
             Console.WriteLine("\tРезультат умножения массива на число: ");
 
             MyArray newArray = myArray * num;
-            Console.WriteLine(newArray.ToString());
+            Console.WriteLine("\t" + newArray.ToString());
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Execution2
             Console.WriteLine("\tРезультат деления массива на число: ");
 
             MyArray newArray = myArray / num;
-            Console.WriteLine(newArray.ToString());
+            Console.WriteLine("\t" + newArray.ToString());
         }
     }
 }
