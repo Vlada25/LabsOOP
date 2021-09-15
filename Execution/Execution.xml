@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Execution</name>
+    </assembly>
+    <members>
+        <member name="M:Execution.Program.Create">
+            <summary>
+            Trapeze creation
+            </summary>
+            <returns> Trapeze </returns>
+        </member>
+        <member name="M:Execution.Program.CheckPointAffiliation(FigureLibrary.Trapeze)">
+            <summary>
+            Checking point afflication to trapeze
+            </summary>
+            <param name="trapeze"> Selected trapeze </param>
+        </member>
+    </members>
+</doc>

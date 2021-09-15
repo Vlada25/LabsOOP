@@ -2,6 +2,9 @@
 
 namespace FigureLibrary
 {
+    /// <summary>
+    /// Class describing a curved trapezoid
+    /// </summary>
     public class Trapeze : IFigure
     {
         const int IndexSide1 = 0,
