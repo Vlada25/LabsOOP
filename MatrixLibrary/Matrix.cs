@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MatrixLibrary
 {
-    public class Matrix
+    public class Matrix : IMatrix
     {
         private int[,] _matrix;
         public int CountOfRows { get; private set; }
