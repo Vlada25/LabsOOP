@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MatrixLibrary
 {
@@ -228,6 +224,39 @@ namespace MatrixLibrary
                 res += "\n";
             }
             return res;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Matrix matrix = (Matrix)obj;
+
+            if (matrix.GetMatrix().Length != GetMatrix().Length)
+            {
+                return false;
+            }
+            else if (matrix.CountOfRows != CountOfRows || 
+                matrix.CountOfColumns != CountOfColumns)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < CountOfRows; i++)
+            {
+                for (int j = 0; j < CountOfColumns; j++)
+                {
+                    if (matrix[i,j] != this[i, j])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }
