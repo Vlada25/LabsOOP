@@ -8,5 +8,16 @@ namespace Execution3
 {
     class Program
     {
+        static void Main()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+                Console.WriteLine("Matrices must be of the same dimension");
+            }
+        }
     }
 }
