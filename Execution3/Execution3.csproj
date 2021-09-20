@@ -38,5 +38,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MatrixLibrary\MatrixLibrary.csproj">
+      <Project>{7258EECF-B269-4D8D-8178-1C4F3452EDE0}</Project>
+      <Name>MatrixLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

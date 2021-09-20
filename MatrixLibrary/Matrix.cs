@@ -140,6 +140,12 @@ namespace MatrixLibrary
         /// <returns> New resulting matrix </returns>
         public static Matrix operator - (Matrix matrix1, Matrix matrix2)
         {
+            if (matrix1.CountOfRows != matrix2.CountOfRows || 
+                matrix1.CountOfColumns != matrix2.CountOfColumns)
+            {
+                throw new Exception("Matrices must be of the same dimension");
+            }
+
             int rows = matrix1.CountOfRows;
             int columns = matrix1.CountOfColumns;
             int[,] matrix = new int[rows, columns];
@@ -217,7 +223,7 @@ namespace MatrixLibrary
             {
                 for (int j = 0; j < CountOfColumns; j++)
                 {
-                    res += $"{_matrix[i, j]} ";
+                    res += String.Format("{0,4}", _matrix[i, j]);
                 }
                 res += "\n";
             }
