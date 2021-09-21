@@ -16,17 +16,34 @@ namespace Execution3
             try
             {
                 CreateMatrix(matrixA);
-                //CreateMatrix(matrixB);
-                //CreateMatrix(matrixC);
+                CreateMatrix(matrixB);
+                CreateMatrix(matrixC);
 
                 Console.WriteLine($"\nМатрица А:\n{matrixA}");
-                //Console.WriteLine($"\nМатрица B:\n{matrixB}");
-                //Console.WriteLine($"\nМатрица C:\n{matrixC}");
+                Console.WriteLine($"\nМатрица B:\n{matrixB}");
+                Console.WriteLine($"\nМатрица C:\n{matrixC}");
 
                 Console.WriteLine("\nСуммы квадратов отрицательных элементов матриц:");
                 Console.WriteLine($"Для матрицы А:\n{matrixA.SumOfSquares()}");
-                //Console.WriteLine($"Для матрицы А:\n{matrixA.SumOfSquares()}");
-                //Console.WriteLine($"Для матрицы А:\n{matrixA.SumOfSquares()}");
+                Console.WriteLine($"Для матрицы B:\n{matrixB.SumOfSquares()}");
+                Console.WriteLine($"Для матрицы C:\n{matrixC.SumOfSquares()}");
+
+                Matrix matrixAB = matrixA - matrixB;
+                Matrix matrixABC = matrixB - matrixA - matrixC;
+
+                Console.WriteLine($"\nМатрица А-B:\n{matrixAB}");
+                Console.WriteLine($"\nМатрица B-A-C:\n{matrixABC}");
+
+                if (matrixA <= matrixB && matrixB <= matrixC)
+                {
+                    int sum = matrixC.SumOfSquares(3);
+
+                    ChangeNegativeElements(matrixA, sum);
+                    ChangeNegativeElements(matrixB, sum);
+                }
+
+                Console.WriteLine($"\nНовая матрица А:\n{matrixA}");
+                Console.WriteLine($"\nНовая матрица B:\n{matrixB}");
             }
             catch (Exception error)
             {
@@ -34,6 +51,23 @@ namespace Execution3
             }
         }
 
+        static void ChangeNegativeElements(Matrix matrix, int num)
+        {
+            int[,] arr = matrix.GetMatrix();
+
+            for (int i = 0; i < matrix.CountOfRows; i++)
+            {
+                for (int j = 0; j < matrix.CountOfColumns; j++)
+                {
+                    if (arr[i, j] < 0)
+                    {
+                        arr[i, j] = num;
+                    }
+                }
+            }
+
+            matrix.SetMatrix(arr, matrix.CountOfRows, matrix.CountOfColumns);
+        }
         static void CreateMatrix(Matrix matrix)
         {
             int rows, columns;

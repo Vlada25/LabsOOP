@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MatrixLibrary
 {
@@ -257,6 +258,15 @@ namespace MatrixLibrary
             }
 
             return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -143828609;
+            hashCode = hashCode * -1521134295 + EqualityComparer<int[,]>.Default.GetHashCode(_matrix);
+            hashCode = hashCode * -1521134295 + CountOfRows.GetHashCode();
+            hashCode = hashCode * -1521134295 + CountOfColumns.GetHashCode();
+            return hashCode;
         }
     }
 }
