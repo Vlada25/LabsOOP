@@ -51,6 +51,11 @@ namespace Execution3
             }
         }
 
+        /// <summary>
+        /// Changing negativ elements in selected matrix with selected number
+        /// </summary>
+        /// <param name="matrix">Selected matrix</param>
+        /// <param name="num">Selected number</param>
         static void ChangeNegativeElements(Matrix matrix, int num)
         {
             int[,] arr = matrix.GetMatrix();
@@ -68,6 +73,11 @@ namespace Execution3
 
             matrix.SetMatrix(arr, matrix.CountOfRows, matrix.CountOfColumns);
         }
+
+        /// <summary>
+        /// Matrix creating
+        /// </summary>
+        /// <param name="matrix">Selected matrix</param>
         static void CreateMatrix(Matrix matrix)
         {
             int rows, columns;
@@ -97,6 +107,12 @@ namespace Execution3
             }
         }
 
+        /// <summary>
+        /// Creating matrix by yourselve
+        /// </summary>
+        /// <param name="rows">Count of rows</param>
+        /// <param name="columns">Count of columns</param>
+        /// <returns>Matrix</returns>
         static int[,] InputMatrix(int rows, int columns)
         {
             int[,] matrix = new int[rows, columns];
@@ -121,6 +137,12 @@ namespace Execution3
             return matrix;
         }
 
+        /// <summary>
+        /// Generating matrix randomly
+        /// </summary>
+        /// <param name="rows">Count of rows</param>
+        /// <param name="columns">Count of columns</param>
+        /// <returns>Matrix</returns>
         static int[,] GenerateMatrixRandomly(int rows, int columns)
         {
             Random random = new Random();
