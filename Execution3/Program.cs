@@ -58,20 +58,16 @@ namespace Execution3
         /// <param name="num">Selected number</param>
         static void ChangeNegativeElements(Matrix matrix, int num)
         {
-            int[,] arr = matrix.GetMatrix();
-
             for (int i = 0; i < matrix.CountOfRows; i++)
             {
                 for (int j = 0; j < matrix.CountOfColumns; j++)
                 {
-                    if (arr[i, j] < 0)
+                    if (matrix[i, j] < 0)
                     {
-                        arr[i, j] = num;
+                        matrix[i, j] = num;
                     }
                 }
             }
-
-            matrix.SetMatrix(arr, matrix.CountOfRows, matrix.CountOfColumns);
         }
 
         /// <summary>
