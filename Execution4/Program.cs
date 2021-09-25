@@ -86,7 +86,7 @@ namespace Execution4
 
 			Console.WriteLine($"\nИсходный текст:\n{givenText}");
 
-			Console.WriteLine("\nВведите слово (для вывода строк, содержащих его)");
+			Console.WriteLine("\nВведите слово (для вывода строк, содержащих его):");
 			string word = Console.ReadLine();
 
 			foreach (string sentence in allSentences)
@@ -97,7 +97,7 @@ namespace Execution4
                 }
             }
 
-			Console.WriteLine($"\nПолученный текст:\n{newText}");
+			Console.WriteLine($"\nПолученный текст:\n{newText}\n");
 		}
 
 		/// <summary>
