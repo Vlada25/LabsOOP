@@ -2,7 +2,7 @@
 
 namespace NarayanaPermutationsLibrary
 {
-    public class Permutation
+    public static class Permutation
     {
 		/// <summary>
 		/// Comparison function (predicate - отношение)
