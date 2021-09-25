@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Execution4", "Execution4\Execution4.csproj", "{745934E9-E8B5-4D8D-868D-A6CDBDD049DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NarayanaPermutationsLibrary", "NarayanaPermutationsLibrary\NarayanaPermutationsLibrary.csproj", "{B97BAAE9-FEB6-4B52-8362-51580F9ABABC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{745934E9-E8B5-4D8D-868D-A6CDBDD049DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745934E9-E8B5-4D8D-868D-A6CDBDD049DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745934E9-E8B5-4D8D-868D-A6CDBDD049DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745934E9-E8B5-4D8D-868D-A6CDBDD049DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97BAAE9-FEB6-4B52-8362-51580F9ABABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97BAAE9-FEB6-4B52-8362-51580F9ABABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97BAAE9-FEB6-4B52-8362-51580F9ABABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97BAAE9-FEB6-4B52-8362-51580F9ABABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
