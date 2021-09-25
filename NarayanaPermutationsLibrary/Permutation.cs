@@ -5,11 +5,11 @@ namespace NarayanaPermutationsLibrary
     public static class Permutation
     {
 		/// <summary>
-		/// Comparison function (predicate - отношение)
+		/// Comparison function
 		/// </summary>
 		/// <param name="firstValue">First value</param>
 		/// <param name="secondValue">Second value</param>
-		/// <returns></returns>
+		/// <returns>Result of comparation (true or false)</returns>
 		public delegate bool DetermineSequenceType(string firstValue, string secondValue);
 
 		/// <summary>
