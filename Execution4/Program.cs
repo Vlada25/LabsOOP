@@ -1,6 +1,7 @@
 ﻿using NarayanaPermutationsLibrary;
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Execution4
 {
@@ -35,6 +36,8 @@ namespace Execution4
 			string originalString = Console.ReadLine();
 			string[] words = originalString.Split('_');
 
+			Array.Sort(words);
+
 			Console.WriteLine("\nВыберите тип последовательности слов:\n" +
 				"1 - Неубывающая\n" +
 				"2 - Невозрастающая");
@@ -44,8 +47,6 @@ namespace Execution4
 			switch (menuItem)
 			{
 				case 1:
-					Array.Sort(words);
-
 					do // x < y — критерий сравнения для неубывающей последовательности
 					{
 						Console.WriteLine(Permutation.SequenceToString(words));
@@ -53,7 +54,6 @@ namespace Execution4
 					break;
 
 				case 2:
-					Array.Sort(words);
 					words = Reverse(words);
 
 					do // x > y — критерий сравнения для невозрастающей последовательности
@@ -89,9 +89,11 @@ namespace Execution4
 			Console.WriteLine("\nВведите слово (для вывода строк, содержащих его):");
 			string word = Console.ReadLine();
 
+			Regex regex = new Regex($@"\s{word}\s");
+
 			foreach (string sentence in allSentences)
             {
-				if (sentence.Contains(word))
+				if (regex.IsMatch(sentence))
                 {
 					newText.Append(sentence + ".");
                 }
@@ -106,15 +108,15 @@ namespace Execution4
 		/// <param name="array">Selected array</param>
 		/// <returns>Rewersed array</returns>
 		static string[] Reverse(string[] array)
-        {
+		{
 			string[] newArray = new string[array.Length];
 
-			for(int i = array.Length-1; i >= 0; i--)
-            {
+			for (int i = array.Length - 1; i >= 0; i--)
+			{
 				newArray[array.Length - i - 1] = array[i];
-            }
+			}
 
 			return newArray;
-        }
+		}
 	}
 }
