@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArrayOperationLibrary
 {
-    interface IArrayOperation
+    public interface IArrayOperation
     {
         double[] Divide(double number);
         double[] Multiply(double number);

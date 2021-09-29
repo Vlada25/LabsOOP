@@ -34,10 +34,10 @@ namespace UnitTestLab2
         }
 
         [TestMethod]
-        public void Multiply_ReturnArray()
+        [DataRow(2)]
+        public void Multiply_ReturnArray(double num)
         {
             MyArray arr1 = new MyArray(new double[] { 9 });
-            double num = 2;
 
             MyArray arr2 = arr1 * num;
             Task.Run(() => { arr1.Multiply(num); });
@@ -49,10 +49,10 @@ namespace UnitTestLab2
         }
 
         [TestMethod]
-        public void Devide_ReturnArray()
+        [DataRow(2)]
+        public void Devide_ReturnArray(double num)
         {
             MyArray arr1 = new MyArray(new double[] { 8 });
-            double num = 2;
 
             MyArray arr2 = arr1 / num;
             Task.Run(() => { arr1.Divide(num); });
