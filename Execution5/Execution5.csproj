@@ -38,5 +38,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccidentReportLibrary\AccidentReportLibrary.csproj">
+      <Project>{FF4108FB-A992-48EB-AD02-A67D5BC6E8C0}</Project>
+      <Name>AccidentReportLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

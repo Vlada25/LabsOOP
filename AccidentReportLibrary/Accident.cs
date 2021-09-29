@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccidentReportLibrary
 {
-    class Accident
+    public class Accident
     {
         public DateTime DateTime { get; }
         public AccidentType Type { get; }
