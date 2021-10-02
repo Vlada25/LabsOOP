@@ -9,17 +9,14 @@ namespace AccidentReportLibrary
 {
     public class AccidentReport
     {
-        const int DateIndex = 0,
-            TimeIndex = 1,
-            CountryIndex = 2,
-            ModelIndex = 3,
-            NumberIndex = 4;
+        const int CountryIndex = 2,
+            VMIndex = 3,
+            VNIndex = 4;
 
-        Accident accident;
+        private readonly Accident accident;
+        private readonly Vehicle vehicle;
         public int Number { get; }
         public string Country { get; }
-        public string VehicleModel { get; }
-        public int VehicleNumber { get; }
 
         private static readonly List<int> listOfNumbers = new List<int>();
 
@@ -28,28 +25,21 @@ namespace AccidentReportLibrary
             this.accident = accident;
             Number = GenerateNumber();
             Country = country;
-            VehicleModel = vehicleModel;
-            VehicleNumber = vehicalNumber;
+            vehicle = new Vehicle(vehicleModel, vehicalNumber);
         }
-        public AccidentReport(string data)
+
+        public AccidentReport(string data, AccidentType type)
         {
             Number = GenerateNumber();
+            accident = new Accident(data, type);
 
-            Regex dateRegex = new Regex(@"\d{2}\.\d{2}\.\d{4}");
-            Regex timeRegex = new Regex(@"\d{2}:\d{2}");
+            string[] dataArray = data.Split(',');
 
-            Match dateMatch = dateRegex.Match(data);
-            Match timeMatch = timeRegex.Match(data);
+            Country = dataArray[CountryIndex];
+            vehicle = new Vehicle(dataArray[VMIndex], dataArray[VNIndex]);
 
-            if (!dateMatch.Success || !timeMatch.Success)
-            {
-                throw new Exception("String is not correct");
-            }
-
-            DateTime dateTime = SetDateTime(dateMatch.Value, timeMatch.Value);
-
-            Console.WriteLine(dateTime);
         }
+
         private int GenerateNumber()
         {
             Random rand = new Random();
@@ -60,21 +50,25 @@ namespace AccidentReportLibrary
                 num = rand.Next(10000, 100000);
             } while (listOfNumbers.Contains(num));
 
+            listOfNumbers.Add(num);
+
             return num;
         }
-        private DateTime SetDateTime(string date, string time)
+
+        public static int[] GetVehicalNumbers(List<AccidentReport> reports)
         {
-            const int dayIndex = 0,
-                monthIndex = 2;
-            int day = Convert.ToInt32(date.Substring(0, 2)),
-                month = Convert.ToInt32(date.Substring(3, 2)),
-                year = Convert.ToInt32(date.Substring(6, 4));
+            int[] numbers = new int[reports.Count];
 
-            int hour = Convert.ToInt32(time.Substring(0, 2)),
-                min = Convert.ToInt32(time.Substring(3, 2)),
-                sec = 0;
+            for (int i = 0; i < reports.Count; i++)
+            {
+                numbers[i] = reports[i].vehicle.Number;
+            }
 
-            return new DateTime(year, month, day, hour, min, sec);
+            return numbers;
+        }
+        public override string ToString()
+        {
+            return $"\nДТП №{Number}\n{accident}\nСтрана регистрации: {Country}\n{vehicle}";
         }
     }
 }

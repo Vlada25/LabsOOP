@@ -1,10 +1,7 @@
 ﻿using AccidentReportLibrary;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Execution5
 {
@@ -12,8 +9,9 @@ namespace Execution5
     {
         static void Main()
         {
+            List <AccidentReport> reports = new List<AccidentReport>();
             StringBuilder data = new StringBuilder();
-            ReadData(data);
+            Service.ReadData(data);
 
             string[] lines = Convert.ToString(data).Split(';');
 
@@ -25,32 +23,25 @@ namespace Execution5
                     {
                         continue;
                     }
-                    AccidentReport report = new AccidentReport(line);
+
+                    reports.Add(new AccidentReport(line, AccidentType.Collision));
                 }
+
+                int[] numbers = AccidentReport.GetVehicalNumbers(reports);
+
+                Console.WriteLine($"Отчёты:{Service.ViewAllReports(reports)}");
+                Console.WriteLine($"Номера ТС:{Service.ViewVehicalNumbers(numbers)}");
+
+                Service.SortByCountries(reports, numbers);
+
+                Console.WriteLine($"Номера ТС, отсортированные по странам:{Service.ViewVehicalNumbers(numbers)}");
             }
             catch(Exception error)
             {
                 Console.WriteLine(error.Message);
             }
-            
-            Console.WriteLine(data);
         }
 
-        static void ReadData(StringBuilder data)
-        {
-            string path = @"..\data.txt";
-
-            try
-            {
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    data.Append(sr.ReadToEnd());
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+        
     }
 }

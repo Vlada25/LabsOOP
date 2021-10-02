@@ -1,0 +1,80 @@
+﻿using AccidentReportLibrary;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Execution5
+{
+    static class Service
+    {
+        public static void ReadData(StringBuilder data)
+        {
+            string path = @"..\data.txt";
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    data.Append(sr.ReadToEnd());
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        public static void SortByCountries(List<AccidentReport> reports, int[] numbers)
+        {
+            int len = reports.Count;
+            string[] countries = new string[len];
+
+            for (int i = 0; i < len; i++)
+            {
+                countries[i] = reports[i].Country;
+            }
+
+            for (int i = 0; i < len - 1; i++)
+            {
+                for (int j = i + 1; j < len; j++)
+                {
+                    if (countries[i].CompareTo(countries[j]) == 1)
+                    {
+                        string tmp1 = countries[i];
+                        countries[i] = countries[j];
+                        countries[j] = tmp1;
+
+                        int tmp2 = numbers[i];
+                        numbers[i] = numbers[j];
+                        numbers[j] = tmp2;
+                    }
+                }
+            }
+        }
+        public static string ViewAllReports(List<AccidentReport> reports)
+        {
+            string res = "\n";
+
+            foreach (AccidentReport report in reports)
+            {
+                res += report.ToString() + "\n";
+            }
+
+            return res;
+        }
+
+        public static string ViewVehicalNumbers(int[] numbers)
+        {
+            string res = "\n";
+
+            foreach (int num in numbers)
+            {
+                res += num + "\n";
+            }
+
+            return res;
+        }
+    }
+}
