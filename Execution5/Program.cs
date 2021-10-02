@@ -30,11 +30,11 @@ namespace Execution5
                 int[] numbers = AccidentReport.GetVehicalNumbers(reports);
 
                 Console.WriteLine($"Отчёты:{Service.ViewAllReports(reports)}");
-                Console.WriteLine($"Номера ТС:{Service.ViewVehicalNumbers(numbers)}");
+                Console.WriteLine($"Номера ТС:{Service.ViewVehicleNumbers(numbers)}");
 
                 Service.SortByCountries(reports, numbers);
 
-                Console.WriteLine($"Номера ТС, отсортированные по странам:{Service.ViewVehicalNumbers(numbers)}");
+                Console.WriteLine($"Номера ТС, отсортированные по странам:{Service.ViewVehicleNumbers(numbers)}");
             }
             catch(Exception error)
             {

@@ -2,14 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Execution5
 {
     static class Service
     {
+        /// <summary>
+        /// Reading data from file
+        /// </summary>
+        /// <param name="data">Data</param>
         public static void ReadData(StringBuilder data)
         {
             string path = @"..\data.txt";
@@ -26,6 +28,12 @@ namespace Execution5
                 Console.WriteLine(e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorting by countries
+        /// </summary>
+        /// <param name="reports">List of reports</param>
+        /// <param name="numbers">List of vehicle numbers</param>
         public static void SortByCountries(List<AccidentReport> reports, int[] numbers)
         {
             int len = reports.Count;
@@ -53,6 +61,12 @@ namespace Execution5
                 }
             }
         }
+
+        /// <summary>
+        /// Viewing all of reports
+        /// </summary>
+        /// <param name="reports">List of reports</param>
+        /// <returns>String reports</returns>
         public static string ViewAllReports(List<AccidentReport> reports)
         {
             string res = "\n";
@@ -65,7 +79,12 @@ namespace Execution5
             return res;
         }
 
-        public static string ViewVehicalNumbers(int[] numbers)
+        /// <summary>
+        /// Viewing all vehicle numbers
+        /// </summary>
+        /// <param name="numbers">List of vehicle numbers</param>
+        /// <returns>String numbers</returns>
+        public static string ViewVehicleNumbers(int[] numbers)
         {
             string res = "\n";
 

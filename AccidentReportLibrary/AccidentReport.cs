@@ -20,6 +20,13 @@ namespace AccidentReportLibrary
 
         private static readonly List<int> listOfNumbers = new List<int>();
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="accident">Type and time of accident</param>
+        /// <param name="country">Country</param>
+        /// <param name="vehicleModel">Model of vehicle</param>
+        /// <param name="vehicalNumber">Type of vehicle</param>
         public AccidentReport(Accident accident, string country, string vehicleModel, int vehicalNumber)
         {
             this.accident = accident;
@@ -28,6 +35,11 @@ namespace AccidentReportLibrary
             vehicle = new Vehicle(vehicleModel, vehicalNumber);
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="data">String with all necessary info about accident</param>
+        /// <param name="type">Type of accident</param>
         public AccidentReport(string data, AccidentType type)
         {
             Number = GenerateNumber();
@@ -40,6 +52,10 @@ namespace AccidentReportLibrary
 
         }
 
+        /// <summary>
+        /// Generating number by random
+        /// </summary>
+        /// <returns>Number of accident</returns>
         private int GenerateNumber()
         {
             Random rand = new Random();
@@ -55,6 +71,11 @@ namespace AccidentReportLibrary
             return num;
         }
 
+        /// <summary>
+        /// Getting all vehicle numbers from reports
+        /// </summary>
+        /// <param name="reports">List of reports</param>
+        /// <returns>List of numbers</returns>
         public static int[] GetVehicalNumbers(List<AccidentReport> reports)
         {
             int[] numbers = new int[reports.Count];

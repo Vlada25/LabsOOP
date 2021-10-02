@@ -12,12 +12,22 @@ namespace AccidentReportLibrary
         public DateTime DateTime { get; }
         public AccidentType Type { get; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="dateTime">Date and time</param>
+        /// <param name="type">Type of accident</param>
         public Accident(DateTime dateTime, AccidentType type)
         {
             DateTime = dateTime;
             Type = type;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="data">String value which contains date and time values</param>
+        /// <param name="type">Type of accident</param>
         public Accident(string data, AccidentType type)
         {
             DateTime dateTime = SetDateTime(data);
@@ -25,6 +35,12 @@ namespace AccidentReportLibrary
             DateTime = dateTime;
             Type = type;
         }
+
+        /// <summary>
+        /// Setting date and time
+        /// </summary>
+        /// <param name="data">String value which contains date and time values</param>
+        /// <returns>Date and time</returns>
         private DateTime SetDateTime(string data)
         {
             Regex dateRegex = new Regex(@"\d{2}\.\d{2}\.\d{4}");

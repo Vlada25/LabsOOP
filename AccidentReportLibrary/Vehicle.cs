@@ -10,17 +10,34 @@ namespace AccidentReportLibrary
     {
         public string Model { get; }
         public int Number { get; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="model">Model</param>
+        /// <param name="number">Int number</param>
         public Vehicle(string model, int number)
         {
             Model = model;
             Number = number;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="model">Model</param>
+        /// <param name="number">String number</param>
         public Vehicle(string model, string number)
         {
             Model = model;
             Number = SetNumber(number);
         }
+
+        /// <summary>
+        /// Setting vehicle number
+        /// </summary>
+        /// <param name="numStr"></param>
+        /// <returns></returns>
         private int SetNumber(string numStr)
         {
             Exception error = new Exception("Vehicle number is incorrect");
