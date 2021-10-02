@@ -87,6 +87,7 @@ namespace AccidentReportLibrary
 
             return numbers;
         }
+
         public override string ToString()
         {
             return $"\nДТП №{Number}\n{accident}\nСтрана регистрации: {Country}\n{vehicle}";

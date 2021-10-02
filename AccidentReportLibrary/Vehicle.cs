@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccidentReportLibrary
 {
-    internal class Vehicle
+    public class Vehicle
     {
         public string Model { get; }
         public int Number { get; }
@@ -18,6 +18,11 @@ namespace AccidentReportLibrary
         /// <param name="number">Int number</param>
         public Vehicle(string model, int number)
         {
+            if (number < 999 || number > 9999)
+            {
+                throw new Exception("Incorrect vehicle number");
+            }
+
             Model = model;
             Number = number;
         }
