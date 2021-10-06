@@ -24,10 +24,10 @@ namespace Execution5
                         continue;
                     }
 
-                    reports.Add(new AccidentReport(line, AccidentType.Collision));
+                    reports.Add(new AccidentReport(line, Service.GenerateAccidentType()));
                 }
 
-                int[] numbers = AccidentReport.GetVehicalNumbers(reports);
+                int[] numbers = AccidentReport.GetVehicleNumbers(reports);
 
                 Console.WriteLine($"Отчёты:{Service.ViewAllReports(reports)}");
                 Console.WriteLine($"Номера ТС:{Service.ViewVehicleNumbers(numbers)}");

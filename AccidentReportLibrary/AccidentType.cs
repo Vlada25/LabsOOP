@@ -8,13 +8,13 @@ namespace AccidentReportLibrary
 {
     public enum AccidentType
     {
-        Collision,
-        Rollover,
-        HitObstacle,
-        HitPedestrian,
-        HitCyclist,
-        HitAnimal,
-        HitHorseDrawnVehicle,
-        CollisionWithStationaryVehicle
+        Collision = 0,
+        Rollover = 1,
+        HitObstacle = 2,
+        HitPedestrian = 3,
+        HitCyclist = 4,
+        HitAnimal = 5,
+        HitHorseDrawnVehicle = 6,
+        CollisionWithStationaryVehicle = 7
     }
 }

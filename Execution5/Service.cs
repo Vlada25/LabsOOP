@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Execution5
 {
@@ -94,6 +95,20 @@ namespace Execution5
             }
 
             return res;
+        }
+
+        /// <summary>
+        /// Random types generation 
+        /// </summary>
+        /// <returns>Accident type</returns>
+        public static AccidentType GenerateAccidentType()
+        {
+            Thread.Sleep(100);
+
+            Random random = new Random();
+            int num = random.Next(0, 8);
+
+            return (AccidentType)num;
         }
     }
 }

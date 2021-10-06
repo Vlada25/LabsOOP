@@ -72,7 +72,7 @@ namespace AccidentReportLibrary
         /// </summary>
         /// <param name="reports">List of reports</param>
         /// <returns>List of numbers</returns>
-        public static int[] GetVehicalNumbers(List<AccidentReport> reports)
+        public static int[] GetVehicleNumbers(List<AccidentReport> reports)
         {
             int[] numbers = new int[reports.Count];
 
