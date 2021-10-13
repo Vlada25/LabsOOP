@@ -6,4 +6,12 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="bin\Debug\PlaysXML.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TheaterLibrary\TheaterLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
