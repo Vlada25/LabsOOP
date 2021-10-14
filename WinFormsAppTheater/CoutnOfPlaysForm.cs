@@ -29,23 +29,7 @@ namespace WinFormsAppTheater
             DateTime endDate = EndDatePicker.Value;
 
             List<Play> plays = Service.PlaysList;
-            List<TheaterGenre> genres = new List<TheaterGenre>();
-
-            for (int i = 0; i < plays.Count; i++)
-            {
-                if (startDate > plays[i].StartDate || endDate < plays[i].EndDate)
-                {
-                    plays.RemoveAt(i);
-                    i--;
-                }
-                else
-                {
-                    if (!genres.Contains(plays[i].Genre))
-                    {
-                        genres.Add(plays[i].Genre);
-                    }
-                }
-            }
+            List<TheaterGenre> genres = Play.GetAllGenresInDateRange(plays, startDate, endDate);
 
             foreach (TheaterGenre genre in genres)
             {
