@@ -41,7 +41,7 @@ namespace WinFormsAppTheater
             // 
             this.viewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.viewBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.viewBtn.Location = new System.Drawing.Point(141, 549);
+            this.viewBtn.Location = new System.Drawing.Point(703, 549);
             this.viewBtn.Name = "viewBtn";
             this.viewBtn.Size = new System.Drawing.Size(198, 38);
             this.viewBtn.TabIndex = 1;
@@ -59,48 +59,51 @@ namespace WinFormsAppTheater
             this.DataTablePlays.Name = "DataTablePlays";
             this.DataTablePlays.RowHeadersWidth = 51;
             this.DataTablePlays.RowTemplate.Height = 29;
-            this.DataTablePlays.Size = new System.Drawing.Size(1027, 461);
+            this.DataTablePlays.Size = new System.Drawing.Size(980, 461);
             this.DataTablePlays.TabIndex = 3;
             // 
             // ViewVisits
             // 
             this.ViewVisits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ViewVisits.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ViewVisits.Location = new System.Drawing.Point(516, 495);
+            this.ViewVisits.Location = new System.Drawing.Point(12, 495);
             this.ViewVisits.Name = "ViewVisits";
             this.ViewVisits.Size = new System.Drawing.Size(523, 38);
             this.ViewVisits.TabIndex = 4;
             this.ViewVisits.Text = "Вывести все спектакли за указанную дату";
             this.ViewVisits.UseVisualStyleBackColor = false;
+            this.ViewVisits.Click += new System.EventHandler(this.ViewVisits_Click);
             // 
             // CountVisits
             // 
             this.CountVisits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.CountVisits.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CountVisits.Location = new System.Drawing.Point(516, 549);
+            this.CountVisits.Location = new System.Drawing.Point(12, 549);
             this.CountVisits.Name = "CountVisits";
             this.CountVisits.Size = new System.Drawing.Size(523, 38);
             this.CountVisits.TabIndex = 5;
             this.CountVisits.Text = "Подстчитать среднее кол-во спектаклей за указанный период";
             this.CountVisits.UseVisualStyleBackColor = false;
+            this.CountVisits.Click += new System.EventHandler(this.CountVisits_Click);
             // 
             // FindMostPopularGenre
             // 
             this.FindMostPopularGenre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.FindMostPopularGenre.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FindMostPopularGenre.Location = new System.Drawing.Point(516, 603);
+            this.FindMostPopularGenre.Location = new System.Drawing.Point(12, 603);
             this.FindMostPopularGenre.Name = "FindMostPopularGenre";
             this.FindMostPopularGenre.Size = new System.Drawing.Size(523, 38);
             this.FindMostPopularGenre.TabIndex = 6;
             this.FindMostPopularGenre.Text = "Найти самый популярный жанр за указанный период\r\n";
             this.FindMostPopularGenre.UseVisualStyleBackColor = false;
+            this.FindMostPopularGenre.Click += new System.EventHandler(this.FindMostPopularGenre_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1051, 653);
+            this.ClientSize = new System.Drawing.Size(1006, 653);
             this.Controls.Add(this.FindMostPopularGenre);
             this.Controls.Add(this.CountVisits);
             this.Controls.Add(this.ViewVisits);

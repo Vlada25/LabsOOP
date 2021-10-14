@@ -7,12 +7,20 @@ namespace WinFormsAppTheater
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Creating start window
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            CreateTable();
+            DataTablePlays.Columns.AddRange(CreateTable());
         }
 
+        /// <summary>
+        /// Fill table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewBtn_Click(object sender, EventArgs e)
         {
             Service.Read();
@@ -23,31 +31,17 @@ namespace WinFormsAppTheater
 
             foreach (Play play in plays)
             {
-                DataGridViewCell id = new DataGridViewTextBoxCell();
-                DataGridViewCell name = new DataGridViewTextBoxCell();
-                DataGridViewCell genre = new DataGridViewTextBoxCell();
-                DataGridViewCell startDate = new DataGridViewTextBoxCell();
-                DataGridViewCell endDate = new DataGridViewTextBoxCell();
-                DataGridViewCell countOfVisits = new DataGridViewTextBoxCell();
-
-                id.Value = index;
-                name.Value = play.Name;
-                genre.Value = Play.GetDisplayName(play.Genre);
-                startDate.Value = play.StartDate.ToString("d");
-                endDate.Value = play.EndDate.ToString("d");
-                countOfVisits.Value = play.CountOfVisits;
-
-                DataGridViewRow row = new DataGridViewRow();
-                row.Cells.AddRange(id, name, genre, startDate, endDate, countOfVisits);
-
-                DataTablePlays.Rows.Add(row);
-
+                DataTablePlays.Rows.Add(AddRow(play, index));
                 index++;
             }
             
         }
 
-        void CreateTable()
+        /// <summary>
+        /// Creating the header of table
+        /// </summary>
+        /// <returns>Header of the table</returns>
+        public static DataGridViewTextBoxColumn[] CreateTable()
         {
             DataGridViewTextBoxColumn column0 = new DataGridViewTextBoxColumn();
             column0.Name = "id";
@@ -77,7 +71,68 @@ namespace WinFormsAppTheater
             column5.HeaderText = "Количество посещений";
             column5.Width = 150;
 
-            DataTablePlays.Columns.AddRange(column0, column1, column2, column3, column4, column5);
+            return new DataGridViewTextBoxColumn[] { column0, column1, column2, column3, column4, column5 };
+        }
+
+        /// <summary>
+        /// Adding row with data
+        /// </summary>
+        /// <param name="play">Data</param>
+        /// <param name="index">Index of line</param>
+        /// <returns>New row</returns>
+        public static DataGridViewRow AddRow(Play play, int index)
+        {
+            DataGridViewCell id = new DataGridViewTextBoxCell();
+            DataGridViewCell name = new DataGridViewTextBoxCell();
+            DataGridViewCell genre = new DataGridViewTextBoxCell();
+            DataGridViewCell startDate = new DataGridViewTextBoxCell();
+            DataGridViewCell endDate = new DataGridViewTextBoxCell();
+            DataGridViewCell countOfVisits = new DataGridViewTextBoxCell();
+
+            id.Value = index;
+            name.Value = play.Name;
+            genre.Value = Play.GetDisplayName(play.Genre);
+            startDate.Value = play.StartDate.ToString("d");
+            endDate.Value = play.EndDate.ToString("d");
+            countOfVisits.Value = play.CountOfVisits;
+
+            DataGridViewRow row = new DataGridViewRow();
+            row.Cells.AddRange(id, name, genre, startDate, endDate, countOfVisits);
+
+            return row;
+        }
+
+        /// <summary>
+        /// Button for opening new window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ViewVisits_Click(object sender, EventArgs e)
+        {
+            PlaysByDateForm playsByDateForm = new PlaysByDateForm();
+            playsByDateForm.Show();
+        }
+
+        /// <summary>
+        /// Button for opening new window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CountVisits_Click(object sender, EventArgs e)
+        {
+            CoutnOfPlaysForm coutnOfPlaysForm = new CoutnOfPlaysForm();
+            coutnOfPlaysForm.Show();
+        }
+
+        /// <summary>
+        /// Button for opening new window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindMostPopularGenre_Click(object sender, EventArgs e)
+        {
+            PopularGenreForm popularGenreForm = new PopularGenreForm();
+            popularGenreForm.Show();
         }
     }
 }
