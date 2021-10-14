@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using TheaterLibrary;
@@ -11,6 +10,9 @@ namespace WinFormsAppTheater
     {
         public static List<Play> PlaysList = new List<Play>();
 
+        /// <summary>
+        /// Reading data from XML-file
+        /// </summary>
         public static void Read()
         {
             PlaysList = new List<Play>();
@@ -41,6 +43,11 @@ namespace WinFormsAppTheater
             catch { }
         }
 
+        /// <summary>
+        /// Getting date
+        /// </summary>
+        /// <param name="date">String date</param>
+        /// <returns>Date</returns>
         private static DateTime GetDate(string date)
         {
             Regex dateRegex = new Regex(@"\d{2}\.\d{2}\.\d{4}");

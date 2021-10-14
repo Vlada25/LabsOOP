@@ -88,7 +88,7 @@ namespace WinFormsAppTheater
             this.Controls.Add(this.SelectedDataTable);
             this.Controls.Add(this.SelectDateBtn);
             this.Name = "PlaysByDateForm";
-            this.Text = "PlaysByDateForm";
+            this.Text = "Вывод спектаклей в выбранную дату";
             ((System.ComponentModel.ISupportInitialize)(this.SelectedDataTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

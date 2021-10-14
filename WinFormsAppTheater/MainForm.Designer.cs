@@ -68,7 +68,7 @@ namespace WinFormsAppTheater
             this.ViewVisits.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ViewVisits.Location = new System.Drawing.Point(12, 495);
             this.ViewVisits.Name = "ViewVisits";
-            this.ViewVisits.Size = new System.Drawing.Size(523, 38);
+            this.ViewVisits.Size = new System.Drawing.Size(610, 38);
             this.ViewVisits.TabIndex = 4;
             this.ViewVisits.Text = "Вывести все спектакли за указанную дату";
             this.ViewVisits.UseVisualStyleBackColor = false;
@@ -80,9 +80,9 @@ namespace WinFormsAppTheater
             this.CountVisits.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CountVisits.Location = new System.Drawing.Point(12, 549);
             this.CountVisits.Name = "CountVisits";
-            this.CountVisits.Size = new System.Drawing.Size(523, 38);
+            this.CountVisits.Size = new System.Drawing.Size(610, 38);
             this.CountVisits.TabIndex = 5;
-            this.CountVisits.Text = "Подстчитать среднее кол-во спектаклей за указанный период";
+            this.CountVisits.Text = "Подсчитать среднее кол-во спектаклей за указанный период по жанрам\r\n";
             this.CountVisits.UseVisualStyleBackColor = false;
             this.CountVisits.Click += new System.EventHandler(this.CountVisits_Click);
             // 
@@ -92,7 +92,7 @@ namespace WinFormsAppTheater
             this.FindMostPopularGenre.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FindMostPopularGenre.Location = new System.Drawing.Point(12, 603);
             this.FindMostPopularGenre.Name = "FindMostPopularGenre";
-            this.FindMostPopularGenre.Size = new System.Drawing.Size(523, 38);
+            this.FindMostPopularGenre.Size = new System.Drawing.Size(610, 38);
             this.FindMostPopularGenre.TabIndex = 6;
             this.FindMostPopularGenre.Text = "Найти самый популярный жанр за указанный период\r\n";
             this.FindMostPopularGenre.UseVisualStyleBackColor = false;
