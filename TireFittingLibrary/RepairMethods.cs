@@ -9,6 +9,25 @@ namespace TireFittingLibrary
 {
     public static class RepairMethods
     {
+        public struct RepairInfo
+        {
+            public int Id { get; }
+            public string Date { get; }
+            public string CarModel { get; }
+            public string CarNumber { get; }
+            public string RepairType { get; }
+            public double Price { get; }
+
+            public RepairInfo(int id, string date, string carModel, string carNumber, string repairType, double price)
+            {
+                Id = id;
+                Date = date;
+                CarModel = carModel;
+                CarNumber = carNumber;
+                RepairType = repairType;
+                Price = price;
+            }
+        }
         public static string ViewWorksByRepairType(List<Repair> repairList, RepairType repairType)
         {
             return "";
@@ -24,6 +43,37 @@ namespace TireFittingLibrary
             return 0;
         }
 
+        public static List<RepairInfo> GetRepairInfo(List<Repair> repairList)
+        {
+            List<RepairInfo> info = new List<RepairInfo>();
+
+            foreach (Repair repair in repairList)
+            {
+                string type = null;
+
+                switch (repair.GetType().Name)
+                {
+                    case "TireChange":
+                        type = "Замена шин";
+                        break;
+                    case "PunctureRepair":
+                        type = "Ремонт проколов";
+                        break;
+                    case "WheelBalancing":
+                        type = "Балансировка колёс";
+                        break;
+                    case "WheelAlignment":
+                        type = "Развал-схождение";
+                        break;
+                    default:
+                        throw new Exception("Invalid type of repair");
+                }
+
+                info.Add(new RepairInfo(repair.Id, repair.Date.ToString("d"), repair.Automobile.Model, repair.Automobile.Number, type, repair.Price));
+            }
+
+            return info;
+        }
         public static DateTime SetDate(string date)
         {
             Regex dateRegex = new Regex(@"\d{2}\.\d{2}\.\d{4}");

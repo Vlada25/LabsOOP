@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace TireFittingLibrary
 {
@@ -25,15 +24,17 @@ namespace TireFittingLibrary
                 throw error;
             }
 
-            Regex numRegex = new Regex(@"\d{4}");
-            Match numMatch = numRegex.Match(number);
-
-            if (!numMatch.Success)
+            if (!int.TryParse(number, out int _))
             {
                 throw error;
             }
 
             return number;
+        }
+
+        public override string ToString()
+        {
+            return $"Car model: {Model}\nCar number {Number}";
         }
     }
 }

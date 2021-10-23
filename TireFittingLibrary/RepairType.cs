@@ -4,7 +4,7 @@ namespace TireFittingLibrary
 {
     public enum RepairType
     {
-        [Display(Name = "Замена колёс")]
+        [Display(Name = "Замена шин")]
         TireChange,
 
         [Display(Name = "Ремонт проколов")]

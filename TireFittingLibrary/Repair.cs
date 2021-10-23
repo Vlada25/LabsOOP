@@ -5,18 +5,26 @@ namespace TireFittingLibrary
 {
     public abstract class Repair
     {
+        public int Id { get; }
         public DateTime Date { get; }
         public Automobile Automobile { get; } // можно ли называть как класс или лучше не стоит?
-        public double Cost { get; }
+        public double Price { get; }
         protected bool isRenovated = false;
 
-        public Repair(string date, Automobile automobile, double cost)
+        public Repair(int id, DateTime date, Automobile automobile, double price)
         {
-            Date = RepairMethods.SetDate(date);
+            Id = id;
+            Date = date;
             Automobile = automobile;
-            Cost = cost;
+            Price = price;
         }
 
         public abstract string Renovate();
+
+        public override string ToString()
+        {
+            return $"Id: {Id}\nDate: {Date:d}\n{Automobile}\nPrice: {Price}";
+
+        }
     }
 }

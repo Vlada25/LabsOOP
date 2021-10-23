@@ -6,8 +6,8 @@ namespace TireFittingLibrary.RepairTypes
 {
     public class PunctureRepair : Repair
     {
-        public PunctureRepair(string date, Automobile automobile, double cost)
-            : base(date, automobile, cost) { }
+        public PunctureRepair(int id, DateTime date, Automobile automobile, double cost)
+            : base(id, date, automobile, cost) { }
 
         public override string Renovate()
         {

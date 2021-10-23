@@ -6,8 +6,7 @@ namespace TireFittingLibrary.RepairTypes
 {
     public class WheelBalancing : Repair
     {
-        public WheelBalancing(string date, Automobile automobile, double cost)
-            : base(date, automobile, cost) { }
+        public WheelBalancing(int id, DateTime date, Automobile automobile, double cost) : base(id, date, automobile, cost) { }
 
         public override string Renovate()
         {
