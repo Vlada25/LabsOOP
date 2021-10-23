@@ -12,33 +12,11 @@ namespace TireFittingLibrary
 
         public Repair(string date, Automobile automobile, double cost)
         {
-            Date = SetDate(date);
+            Date = RepairMethods.SetDate(date);
             Automobile = automobile;
             Cost = cost;
         }
 
         public abstract string Renovate();
-        private static DateTime SetDate(string date)
-        {
-            Regex dateRegex = new Regex(@"\d{2}\.\d{2}\.\d{4}");
-            Match dateMatch = dateRegex.Match(date);
-
-            if (!dateMatch.Success)
-            {
-                throw new Exception("Incorrect date");
-            }
-
-            const int dayIndex = 0,
-                monthIndex = 3,
-                yearIndex = 6,
-                dayAndMonth_Strlen = 2,
-                yearStrlen = 4;
-
-            int day = Convert.ToInt32(date.Substring(dayIndex, dayAndMonth_Strlen)),
-                month = Convert.ToInt32(date.Substring(monthIndex, dayAndMonth_Strlen)),
-                year = Convert.ToInt32(date.Substring(yearIndex, yearStrlen));
-
-            return new DateTime(year, month, day);
-        }
     }
 }
