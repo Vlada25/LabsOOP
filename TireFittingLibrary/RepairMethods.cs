@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace TireFittingLibrary
 {
@@ -18,9 +12,9 @@ namespace TireFittingLibrary
             public string CarModel { get; }
             public string CarNumber { get; }
             public string RepairType { get; }
-            public double Price { get; }
+            public string Price { get; }
 
-            public RepairInfo(int id, string date, string carModel, string carNumber, string repairType, double price)
+            public RepairInfo(int id, string date, string carModel, string carNumber, string repairType, string price)
             {
                 Id = id;
                 Date = date;
@@ -73,19 +67,19 @@ namespace TireFittingLibrary
         public static string FindMostPopularRepairByCarModel(string model)
         {
             string result = "";
-            Dictionary<string, int> types = new Dictionary<string, int>();
+            Dictionary<string, int> typeCountDict = new Dictionary<string, int>();
 
             foreach (Repair repair in RepairList)
             {
                 if (repair.Automobile.Model.Equals(model))
                 {
-                    if (!types.ContainsKey(GetTypeName(repair)))
+                    if (!typeCountDict.ContainsKey(GetTypeName(repair)))
                     {
-                        types.Add(GetTypeName(repair), 1);
+                        typeCountDict.Add(GetTypeName(repair), 1);
                     }
                     else
                     {
-                        types[GetTypeName(repair)] += 1; 
+                        typeCountDict[GetTypeName(repair)] += 1; 
                     }
                 }
             }
@@ -93,7 +87,7 @@ namespace TireFittingLibrary
             int max = 0;
             string maxType = "";
 
-            foreach (KeyValuePair<string, int> pair in types)
+            foreach (KeyValuePair<string, int> pair in typeCountDict)
             {
                 result += $"{pair.Key} - {pair.Value}\n";
 
@@ -107,28 +101,63 @@ namespace TireFittingLibrary
             return $"{result}\nНаиболее часто выполняемая работа:\n{maxType}";
         }
 
-        public static double CountTotalCost(DateTime startDate, DateTime endDate)
+        public static string CountTotalCost(List<Repair> selectedRepairList)
         {
-            return 0;
+            string result = "";
+            Dictionary<string, double> typeTotalPriceDict = new Dictionary<string, double>();
+
+            foreach (Repair repair in selectedRepairList)
+            {
+                if (!typeTotalPriceDict.ContainsKey(GetTypeName(repair)))
+                {
+                    typeTotalPriceDict.Add(GetTypeName(repair), repair.Price);
+                }
+                else
+                {
+                    typeTotalPriceDict[GetTypeName(repair)] += repair.Price;
+                }
+            }
+
+            foreach (KeyValuePair<string, double> pair in typeTotalPriceDict)
+            {
+                result += $"{pair.Key} - {pair.Value}$\n";
+            }
+
+            return result;
         }
 
-        public static List<RepairInfo> GetRepairInfo()
+        public static List<Repair> GetRepairInInterval(DateTime startDate, DateTime endDate)
         {
-            List<RepairInfo> info = new List<RepairInfo>();
+            List<Repair> selectedRepairList = new List<Repair>();
 
             foreach (Repair repair in RepairList)
             {
+                if (repair.Date > startDate && repair.Date < endDate)
+                {
+                    selectedRepairList.Add(repair);
+                }
+            }
+
+            return selectedRepairList;
+        }
+
+        public static List<RepairInfo> GetRepairInfo(List<Repair> repairList)
+        {
+            List<RepairInfo> info = new List<RepairInfo>();
+
+            foreach (Repair repair in repairList)
+            {
                 string type = GetTypeName(repair);
 
-                info.Add(new RepairInfo(repair.Id, repair.Date.ToString("d"), repair.Automobile.Model, repair.Automobile.Number, type, repair.Price));
+                info.Add(new RepairInfo(repair.Id, repair.Date.ToString("d"), repair.Automobile.Model, repair.Automobile.Number, type, $"{repair.Price}$"));
             }
 
             return info;
         }
 
-        private static string GetTypeName(Repair repair)
+        public static string GetTypeName(Repair repair)
         {
-            string type = null;
+            string type;
 
             switch (repair.GetType().Name)
             {
@@ -149,15 +178,6 @@ namespace TireFittingLibrary
             }
 
             return type;
-        }
-
-        public static string GetDisplayName(RepairType repairType)
-        {
-            Type type = repairType.GetType();
-            var enumItem = type.GetField(repairType.ToString());
-            var attribute = enumItem?.GetCustomAttribute<DisplayAttribute>();
-
-            return attribute?.Name;
         }
     }
 }

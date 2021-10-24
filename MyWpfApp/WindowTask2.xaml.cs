@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using TireFittingLibrary;
 
 namespace MyWpfApp
@@ -16,9 +6,9 @@ namespace MyWpfApp
     /// <summary>
     /// Логика взаимодействия для WindowTask1.xaml
     /// </summary>
-    public partial class WindowTask1 : Window
+    public partial class WindowTask2 : Window
     {
-        public WindowTask1()
+        public WindowTask2()
         {
             InitializeComponent();
         }

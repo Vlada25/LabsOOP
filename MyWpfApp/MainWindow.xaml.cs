@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Data;
 using TireFittingLibrary;
-using TireFittingLibrary.RepairTypes;
-using System.Windows.Controls;
+
 
 namespace MyWpfApp
 {
@@ -51,7 +45,7 @@ namespace MyWpfApp
                 MessageBox.Show(ex.Message, "Error!");
             }
 
-            RepairGrid.ItemsSource = RepairMethods.GetRepairInfo();
+            RepairGrid.ItemsSource = RepairMethods.GetRepairInfo(RepairMethods.RepairList);
         }
 
         private void Button_1_Click(object sender, RoutedEventArgs e)
@@ -61,13 +55,14 @@ namespace MyWpfApp
 
         private void Button_2_Click(object sender, RoutedEventArgs e)
         {
-            WindowTask1 windowTask1 = new WindowTask1();
-            windowTask1.Show();
+            WindowTask2 windowTask2 = new WindowTask2();
+            windowTask2.Show();
         }
 
         private void Button_3_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowTask3 windowTask3 = new WindowTask3();
+            windowTask3.Show();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace TireFittingLibrary
 {
@@ -20,27 +19,7 @@ namespace TireFittingLibrary
 
         public override string ToString()
         {
-            string type;
-
-            switch (GetType().Name)
-            {
-                case "TireChange":
-                    type = "Замена шин";
-                    break;
-                case "PunctureRepair":
-                    type = "Ремонт проколов";
-                    break;
-                case "WheelBalancing":
-                    type = "Балансировка колёс";
-                    break;
-                case "WheelAlignment":
-                    type = "Развал-схождение";
-                    break;
-                default:
-                    throw new Exception("Invalid type of repair");
-            }
-
-            return $"Id: {Id}\nDate: {Date:d}\n{Automobile}\nType: {type}\nPrice: {Price}";
+            return $"Id: {Id}\nDate: {Date:d}\n{Automobile}\nType: {RepairMethods.GetTypeName(this)}\nPrice: {Price}";
         }
     }
 }
