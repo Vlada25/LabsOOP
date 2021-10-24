@@ -3,8 +3,14 @@ using System.Collections.Generic;
 
 namespace TireFittingLibrary
 {
+    /// <summary>
+    /// Methods to interaction with repairs
+    /// </summary>
     public static class RepairMethods
     {
+        /// <summary>
+        /// Struct for string repair describtion
+        /// </summary>
         public struct RepairInfo
         {
             public int Id { get; }
@@ -27,6 +33,10 @@ namespace TireFittingLibrary
 
         public static List<Repair> RepairList = new List<Repair>();
 
+        /// <summary>
+        /// Getting automobile models from all repairs
+        /// </summary>
+        /// <returns>List of models</returns>
         public static List<string> GetCarModels()
         {
             List<string> models = new List<string>();
@@ -42,6 +52,10 @@ namespace TireFittingLibrary
             return models;
         }
 
+        /// <summary>
+        /// Display information about the number of jobs by car models
+        /// </summary>
+        /// <returns>String info</returns>
         public static string ViewWorksByCarModel()
         {
             string result = "";
@@ -64,6 +78,11 @@ namespace TireFittingLibrary
             return result;
         }
 
+        /// <summary>
+        /// Find the most frequently performed work for a given car model
+        /// </summary>
+        /// <param name="model">Automobile model</param>
+        /// <returns>Found work</returns>
         public static string FindMostPopularRepairByCarModel(string model)
         {
             string result = "";
@@ -101,6 +120,11 @@ namespace TireFittingLibrary
             return $"{result}\nНаиболее часто выполняемая работа:\n{maxType}";
         }
 
+        /// <summary>
+        /// Finding total cost by repair works
+        /// </summary>
+        /// <param name="selectedRepairList">List of repairs</param>
+        /// <returns>Info</returns>
         public static string CountTotalCost(List<Repair> selectedRepairList)
         {
             string result = "";
@@ -126,6 +150,12 @@ namespace TireFittingLibrary
             return result;
         }
 
+        /// <summary>
+        /// Getting repairs in selected interval
+        /// </summary>
+        /// <param name="startDate">Start date value</param>
+        /// <param name="endDate">End date value</param>
+        /// <returns>List of suit repairs</returns>
         public static List<Repair> GetRepairInInterval(DateTime startDate, DateTime endDate)
         {
             List<Repair> selectedRepairList = new List<Repair>();
@@ -141,6 +171,11 @@ namespace TireFittingLibrary
             return selectedRepairList;
         }
 
+        /// <summary>
+        /// Getting info from repairs to add them to the table
+        /// </summary>
+        /// <param name="repairList">List of repairs</param>
+        /// <returns>New list</returns>
         public static List<RepairInfo> GetRepairInfo(List<Repair> repairList)
         {
             List<RepairInfo> info = new List<RepairInfo>();
@@ -155,6 +190,11 @@ namespace TireFittingLibrary
             return info;
         }
 
+        /// <summary>
+        /// Getting string value of type of work
+        /// </summary>
+        /// <param name="repair">Repair object</param>
+        /// <returns>String type</returns>
         public static string GetTypeName(Repair repair)
         {
             string type;

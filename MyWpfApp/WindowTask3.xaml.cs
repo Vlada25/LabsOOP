@@ -14,6 +14,11 @@ namespace MyWpfApp
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Finding sum of prices by repair works in selected interval
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try

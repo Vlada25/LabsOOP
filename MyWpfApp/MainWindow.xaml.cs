@@ -19,6 +19,11 @@ namespace MyWpfApp
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Database connecting when the window loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // INSERT INTO Repair (Id, Date, CarModel, CarNumber, RepairType, Price) VALUES ('1', '2021-10-23', N'Mersedes', N'2003', N'Замена колёс', '15')
@@ -48,17 +53,32 @@ namespace MyWpfApp
             RepairGrid.ItemsSource = RepairMethods.GetRepairInfo(RepairMethods.RepairList);
         }
 
+        /// <summary>
+        /// Start to complete task 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_1_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(RepairMethods.ViewWorksByCarModel(), "Задание 1");
         }
 
+        /// <summary>
+        /// Start to complete task 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_2_Click(object sender, RoutedEventArgs e)
         {
             WindowTask2 windowTask2 = new WindowTask2();
             windowTask2.Show();
         }
 
+        /// <summary>
+        /// Start to complete task 3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_3_Click(object sender, RoutedEventArgs e)
         {
             WindowTask3 windowTask3 = new WindowTask3();

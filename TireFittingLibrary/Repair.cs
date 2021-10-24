@@ -2,6 +2,9 @@
 
 namespace TireFittingLibrary
 {
+    /// <summary>
+    /// Repair describtion
+    /// </summary>
     public abstract class Repair
     {
         public int Id { get; }
