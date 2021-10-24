@@ -26,7 +26,7 @@ namespace MyWpfApp
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // INSERT INTO Repair (Id, Date, CarModel, CarNumber, RepairType, Price) VALUES ('1', '2021-10-23', N'Mersedes', N'2003', N'Замена колёс', '15')
+            // INSERT INTO Repair (Id, Date, CarModel, CarNumber, RepairType, Price) VALUES ('1', '2021-10-23', N'Mersedes', N'2003', N'Замена шин', '15')
 
             try
             {
