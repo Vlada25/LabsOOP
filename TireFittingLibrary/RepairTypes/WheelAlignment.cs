@@ -8,11 +8,5 @@ namespace TireFittingLibrary.RepairTypes
     {
         public WheelAlignment(int id, DateTime date, Automobile automobile, double cost)
             : base(id, date, automobile, cost) { }
-
-        public override string Renovate()
-        {
-            isRenovated = true;
-            return "Развал-схождение настроены";
-        }
     }
 }

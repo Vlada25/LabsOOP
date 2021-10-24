@@ -9,10 +9,5 @@ namespace TireFittingLibrary.RepairTypes
         public PunctureRepair(int id, DateTime date, Automobile automobile, double cost)
             : base(id, date, automobile, cost) { }
 
-        public override string Renovate()
-        {
-            isRenovated = true;
-            return "Проколы устранены";
-        }
     }
 }

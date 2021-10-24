@@ -19,7 +19,6 @@ namespace MyWpfApp
     public partial class MainWindow : Window
     {
         private SqlConnection connection = null;
-        List<Repair> repairList = new List<Repair>();
 
         public MainWindow()
         {
@@ -42,26 +41,28 @@ namespace MyWpfApp
                 while (sqlReader.Read())
                 {
                     Repair repair = RepairFactory.CreateRepair((int)sqlReader["Id"], (DateTime)sqlReader["Date"], (string)sqlReader["CarModel"], (string)sqlReader["CarNumber"], (string)sqlReader["RepairType"], (double)sqlReader["Price"]);
-                    repairList.Add(repair);
+                    RepairMethods.RepairList.Add(repair);
                 }
 
-                RepairGrid.ItemsSource = RepairMethods.GetRepairInfo(repairList);
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error!");
             }
+
+            RepairGrid.ItemsSource = RepairMethods.GetRepairInfo();
         }
 
         private void Button_1_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show(RepairMethods.ViewWorksByCarModel(), "Задание 1");
         }
 
         private void Button_2_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowTask1 windowTask1 = new WindowTask1();
+            windowTask1.Show();
         }
 
         private void Button_3_Click(object sender, RoutedEventArgs e)

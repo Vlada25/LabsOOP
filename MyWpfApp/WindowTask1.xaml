@@ -1,0 +1,22 @@
+﻿<Window x:Class="MyWpfApp.WindowTask1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWpfApp"
+        mc:Ignorable="d"
+        Title="Задание 2" Height="200" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox Margin="0 0 0 20" Height="20" Width="170" Text="Выберите марку автомобиля:"></TextBox>
+        <ComboBox Margin="0 50 0 0" Grid.Column="0" Grid.Row="0" Height="25" Width="150" Name="CarModels_Selector">
+        </ComboBox>
+        <Button Grid.Column="0" Grid.Row="1" Width="90" Height="30" Content="Ввод" Click="Button_Click"></Button>
+    </Grid>
+</Window>

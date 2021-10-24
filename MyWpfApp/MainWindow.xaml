@@ -26,7 +26,7 @@
         </DataGrid>
 
         <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Vertical">
-            <Button x:Name="Button_1" Content="Вывести информацию о кол-ве работ по маркам автомобилей" Click="Button_1_Click"/>
+            <Button x:Name="Button_1" Content="Вывести информацию о количестве работ по маркам автомобилей" Click="Button_1_Click"/>
             <Button x:Name="Button_2" Content="Для заданной марки автомобиля найти наиболее часто выполняемую работу" Click="Button_2_Click"/>
             <Button x:Name="Button_3" Content="За указанный период вывести суммарную стоимость по каждому виду работ" Click="Button_3_Click"/>
         </StackPanel>
