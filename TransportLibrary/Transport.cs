@@ -11,6 +11,12 @@ namespace TransportLibrary
             return GetType().Name;
         }
 
+        public Transport(string departurePoint, string destinationPoint)
+        {
+            DeparturePoint = departurePoint;
+            DestinationPoint = destinationPoint;
+        }
+
         protected int FindKindIndex(string kind, string[] values)
         {
             for (int i = 0; i < values.Length; i++)

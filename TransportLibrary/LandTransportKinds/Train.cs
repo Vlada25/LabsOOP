@@ -10,6 +10,12 @@ namespace TransportLibrary.LandTransportKinds
         public int[] sitsInCarriage { get; }
 
         public int this[string index] => FindKindIndex(index, carriageKinds);
+
+        public Train(int tripNumber, string departurePoint, string destinationPoint, params double[] prices)
+            : base(tripNumber, departurePoint, destinationPoint, prices)
+        {
+
+        }
         public override int GetCountOfSits()
         {
             int totalCount = 0;
