@@ -13,8 +13,8 @@ namespace TransportLibrary
 
         public int this[string index] => FindKindIndex(index, planeClasses);
 
-        public Airplane(int flightNumber, string departurePoint, string destinationPoint, params double[] prices)
-            : base (departurePoint, destinationPoint)
+        public Airplane(int flightNumber, string startPoint, string endPoint, double[] prices)
+            : base (startPoint, endPoint)
         {
             FlightNumber = flightNumber;
             if (prices.Length > 3)

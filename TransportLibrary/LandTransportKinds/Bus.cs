@@ -10,8 +10,8 @@ namespace TransportLibrary.LandTransportKinds
         public int CountOfSits { get; }
         public int this[string index] => FindKindIndex(index, sitKinds);
 
-        public Bus(int tripNumber, string departurePoint, string destinationPoint, params double[] prices)
-            : base(tripNumber, departurePoint, destinationPoint, prices)
+        public Bus(int tripNumber, string startPoint, string endPoint, double[] prices)
+            : base(tripNumber, startPoint, endPoint, prices)
         {
 
         }

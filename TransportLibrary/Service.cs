@@ -5,27 +5,74 @@ using System.Text;
 
 namespace TransportLibrary
 {
-    internal class Service
+    public class Service
     {
-        const string Filepath = @"..\data.txt";
-
-        public static string[] ReadData()
+        public struct TransportInfo
         {
-            string data = "";
+            public int Id { get; }
+            public string Type { get; }
+            public int Number { get; }
+            public string StartPoint { get; }
+            public string EndPoint { get; }
 
-            try
+            public TransportInfo(int id, string type, int number, string startPoint, string endPoint)
             {
-                using (StreamReader sr = new StreamReader(Filepath))
+                Id = id;
+                Type = type;
+                Number = number;
+                StartPoint = startPoint;
+                EndPoint = endPoint;
+            }
+        }
+
+        const string Filepath = @"..\data.txt";
+        public static List<Transport> TransportList = new List<Transport>();
+
+        public static void ReadData()
+        {
+            List<string> data = new List<string>();
+
+            using (StreamReader sr = new StreamReader(Filepath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    data = sr.ReadToEnd();
+                    data.Add(line);
                 }
             }
-            catch (Exception e)
+
+            foreach (string line in data)
             {
-                Console.WriteLine(e.Message);
+                Transport transport = TransportFactory.CreateObject(line);
+                TransportList.Add(transport);
+            }
+        }
+
+        public static List<TransportInfo> GetTransportInfo(List<Transport> transportList)
+        {
+            List<TransportInfo> info = new List<TransportInfo>();
+            int index = 0;
+
+            foreach (Transport transport in transportList)
+            {
+                index++;
+                int number;
+
+                if (transport.Kind != "Airplane")
+                {
+                    LandTransport landTransport = (LandTransport)transport;
+                    number = landTransport.TripNumber;
+                }
+                else
+                {
+                    Airplane airplane = (Airplane)transport;
+                    number = airplane.FlightNumber;
+                }
+
+                info.Add(new TransportInfo(index, transport.GetKindName(), number, transport.StartPoint, transport.EndPoint));
             }
 
-            return data.Split(';');
+            return info;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace TransportLibrary
     {
         public int TripNumber { get; }
         public List<double> PriceList = new List<double>();
-        public LandTransport(int tripNumber, string departurePoint, string destinationPoint, params double[] prices)
-            : base(departurePoint, destinationPoint)
+        public LandTransport(int tripNumber, string startPoint, string endPoint, double[] prices)
+            : base(startPoint, endPoint)
         {
             TripNumber = tripNumber;
             PriceList.AddRange(prices);

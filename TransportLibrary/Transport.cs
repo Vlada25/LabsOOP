@@ -4,17 +4,15 @@ namespace TransportLibrary
 {
     public abstract class Transport
     {
-        public string DeparturePoint { get; }
-        public string DestinationPoint { get; }
-        public string Kind()
-        {
-            return GetType().Name;
-        }
+        public string StartPoint { get; }
+        public string EndPoint { get; }
+        public string Kind { get; }
 
-        public Transport(string departurePoint, string destinationPoint)
+        public Transport(string startPoint, string endPoint)
         {
-            DeparturePoint = departurePoint;
-            DestinationPoint = destinationPoint;
+            StartPoint = startPoint;
+            EndPoint = endPoint;
+            Kind = GetType().Name;
         }
 
         protected int FindKindIndex(string kind, string[] values)
@@ -31,9 +29,30 @@ namespace TransportLibrary
         }
 
         public abstract int GetCountOfSits();
+
+        public string GetKindName()
+        {
+            string result = "";
+
+            switch (Kind)
+            {
+                case "Bus":
+                    result = "Автобус";
+                    break;
+                case "Train":
+                    result = "Поезд";
+                    break;
+                case "Airplane":
+                    result = "Самолёт";
+                    break;
+            }
+
+            return result;
+        }
+
         public override string ToString()
         {
-            return base.ToString();
+            return GetKindName();
         }
     }
 }

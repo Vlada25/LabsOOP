@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfAppTransport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppTransport"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="727">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 5 20 5" />
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="#C9BAE1" />
+        </Style>
+        
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid AutoGenerateColumns="False" x:Name="TransportGrid" Grid.Row="0">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="IsHitTestVisible" Value="False"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Type}" Value="Самолёт">
+                            <Setter Property="Background" Value="#E1B3D3">
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Type}" Value="Поезд">
+                            <Setter Property="Background" Value="#9ABEE1">
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="50"/>
+                <DataGridTextColumn Binding="{Binding Type}" Header="Тип" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Number}" Header="Номер рейса" Width="100"/>
+                <DataGridTextColumn Binding="{Binding StartPoint}" Header="Пункт отправления" Width="200"/>
+                <DataGridTextColumn Binding="{Binding EndPoint}" Header="Пункт назначения" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Vertical">
+            <Button x:Name="Button_Read" Margin="0 20 0 0" Content="Считать данные из файла" Click="Button_Read_Click"/>
+            <Button x:Name="Button_Input" Margin="0 20 0 0" Content="Ввести недостающую информацию"/>
+            <Button x:Name="Button_Output" Margin="0 20" Content="Вывести цену билета заданного вида на заданный вид транспорта"/>
+        </StackPanel>
+    </Grid>
+</Window>

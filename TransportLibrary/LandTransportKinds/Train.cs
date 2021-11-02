@@ -11,8 +11,8 @@ namespace TransportLibrary.LandTransportKinds
 
         public int this[string index] => FindKindIndex(index, carriageKinds);
 
-        public Train(int tripNumber, string departurePoint, string destinationPoint, params double[] prices)
-            : base(tripNumber, departurePoint, destinationPoint, prices)
+        public Train(int tripNumber, string startPoint, string endPoint, double[] prices)
+            : base(tripNumber, startPoint, endPoint, prices)
         {
 
         }
