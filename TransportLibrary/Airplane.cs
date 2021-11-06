@@ -6,17 +6,18 @@ namespace TransportLibrary
 {
     public class Airplane : Transport
     {
-        string[] planeClasses = { "эконом", "бизнес", "первый" };
+        public string[] PlaneClasses = { "эконом", "бизнес", "первый" };
         public int CountOfSits { get; set; }
         public int FlightNumber { get; }
         public double[] PriceList = new double[3];
 
-        public int this[string index] => FindKindIndex(index, planeClasses);
+        public int this[string index] => FindKindIndex(index, PlaneClasses);
 
         public Airplane(int flightNumber, string startPoint, string endPoint, double[] prices)
             : base (startPoint, endPoint)
         {
             FlightNumber = flightNumber;
+
             if (prices.Length > 3)
             {
                 throw new Exception("Too many arguments passed");
@@ -28,7 +29,7 @@ namespace TransportLibrary
         }
         public override int GetCountOfSits()
         {
-            throw new NotImplementedException();
+            return CountOfSits;
         }
     }
 }

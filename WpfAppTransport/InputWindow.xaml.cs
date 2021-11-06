@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TransportLibrary;
+using TransportLibrary.LandTransportKinds;
 
 namespace WpfAppTransport
 {
@@ -20,6 +22,31 @@ namespace WpfAppTransport
         public InputWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            TransportSelector.ItemsSource = Service.GetShortTransportInfo(Service.TransportList);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int numOfItem = TransportSelector.SelectedIndex;
+                string kind = Convert.ToString(TransportSelector.SelectedItem).Split(' ')[1];
+                string[] textBoxValues = countOfSitsEnter.Text.Split(' ');
+
+                Service.SetCountOfPlaces(numOfItem, kind, textBoxValues);
+
+                MessageBox.Show("Данные добавлены. Обновите таблицу");
+
+                Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error!");
+            }
         }
     }
 }

@@ -5,20 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppTransport"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="727">
+        Title="MainWindow" Height="550" Width="825">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 5 20 5" />
             <Setter Property="Width" Value="500" />
             <Setter Property="Height" Value="30" />
-            <Setter Property="Background" Value="#C9BAE1" />
         </Style>
         
     </Window.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="270" />
+            <RowDefinition Height="230" />
         </Grid.RowDefinitions>
 
         <DataGrid AutoGenerateColumns="False" x:Name="TransportGrid" Grid.Row="0">
@@ -34,6 +33,10 @@
                             <Setter Property="Background" Value="#9ABEE1">
                             </Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Type}" Value="Автобус">
+                            <Setter Property="Background" Value="#9ABEE1">
+                            </Setter>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </DataGrid.RowStyle>
@@ -43,13 +46,15 @@
                 <DataGridTextColumn Binding="{Binding Number}" Header="Номер рейса" Width="100"/>
                 <DataGridTextColumn Binding="{Binding StartPoint}" Header="Пункт отправления" Width="200"/>
                 <DataGridTextColumn Binding="{Binding EndPoint}" Header="Пункт назначения" Width="200"/>
+                <DataGridTextColumn Binding="{Binding CountOfSits}" Header="Кол-во мест" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Vertical">
             <Button x:Name="Button_Read" Margin="0 20 0 0" Content="Считать данные из файла" Click="Button_Read_Click"/>
-            <Button x:Name="Button_Input" Margin="0 20 0 0" Content="Ввести недостающую информацию"/>
-            <Button x:Name="Button_Output" Margin="0 20" Content="Вывести цену билета заданного вида на заданный вид транспорта"/>
+            <Button x:Name="Button_Input" Margin="0 20 0 0" Content="Ввести недостающую информацию" Click="Button_Input_Click"/>
+            <Button x:Name="Button_Output" Margin="0 20 0 0" Content="Вывести цену билета заданного вида на заданный вид транспорта" Click="Button_Output_Click"/>
+            <Button x:Name="Button_Update" Margin="0 20 0 0" Content="Обновить данные" Click="Button_Update_Click"/>
         </StackPanel>
     </Grid>
 </Window>

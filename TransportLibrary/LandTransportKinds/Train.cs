@@ -4,12 +4,12 @@ using System.Text;
 
 namespace TransportLibrary.LandTransportKinds
 {
-    class Train : LandTransport
+    public class Train : LandTransport
     {
-        string[] carriageKinds = { "люкс", "купейный", "плацкартный", "общий" };
-        public int[] sitsInCarriage { get; }
+        public string[] CarriageKinds = { "люкс", "купейный", "плацкартный", "общий" };
+        public int[] SitsInCarriage { get; set; }
 
-        public int this[string index] => FindKindIndex(index, carriageKinds);
+        public int this[string index] => FindKindIndex(index, CarriageKinds);
 
         public Train(int tripNumber, string startPoint, string endPoint, double[] prices)
             : base(tripNumber, startPoint, endPoint, prices)
@@ -19,7 +19,13 @@ namespace TransportLibrary.LandTransportKinds
         public override int GetCountOfSits()
         {
             int totalCount = 0;
-            foreach (int countOfSits in sitsInCarriage)
+
+            if (SitsInCarriage == null)
+            {
+                return 0;
+            }
+
+            foreach (int countOfSits in SitsInCarriage)
             {
                 totalCount += countOfSits;
             }

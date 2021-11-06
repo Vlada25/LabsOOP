@@ -21,6 +21,8 @@ namespace WpfAppTransport
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Exception noData = new Exception("No data");
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +37,50 @@ namespace WpfAppTransport
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Error!");
             }
             
+        }
+
+        private void Button_Input_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Service.TransportList.Count == 0)
+                {
+                    throw noData;
+                }
+
+                InputWindow inputWindow = new InputWindow();
+                inputWindow.Show();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error!");
+            }
+        }
+
+        private void Button_Update_Click(object sender, RoutedEventArgs e)
+        {
+            TransportGrid.ItemsSource = Service.GetTransportInfo(Service.TransportList);
+        }
+
+        private void Button_Output_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Service.TransportList.Count == 0)
+                {
+                    throw noData;
+                }
+
+                PriceWindow priceWindow = new PriceWindow();
+                priceWindow.Show();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error!");
+            }
         }
     }
 }
