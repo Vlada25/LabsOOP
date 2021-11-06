@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TransportLibrary;
-using TransportLibrary.LandTransportKinds;
 
 namespace WpfAppTransport
 {
@@ -26,11 +17,21 @@ namespace WpfAppTransport
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Formation of values of first combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             TransportSelector.ItemsSource = Service.GetShortTransportInfo(Service.TransportList);
         }
 
+        /// <summary>
+        /// Formation of values of second combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TransportSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             transportIndex = TransportSelector.SelectedIndex;
@@ -39,6 +40,11 @@ namespace WpfAppTransport
             KindSelector.ItemsSource = Service.SelectKindOfSits(transportIndex, selectedTransportKind);
         }
 
+        /// <summary>
+        /// Viewing price
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try

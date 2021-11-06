@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportLibrary", "TransportLibrary\TransportLibrary.csproj", "{02B4C791-94E1-45DB-A6BB-2ADA8E789F07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportLibrary", "TransportLibrary\TransportLibrary.csproj", "{02B4C791-94E1-45DB-A6BB-2ADA8E789F07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppTransport", "WpfAppTransport\WpfAppTransport.csproj", "{CBD2A18C-D203-49A4-9747-827C7BF3E83C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppTransport", "WpfAppTransport\WpfAppTransport.csproj", "{CBD2A18C-D203-49A4-9747-827C7BF3E83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportTestProject", "TransportTestProject\TransportTestProject.csproj", "{29FE9BBC-C343-4DF5-B27E-1B16B3D0334B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CBD2A18C-D203-49A4-9747-827C7BF3E83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD2A18C-D203-49A4-9747-827C7BF3E83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD2A18C-D203-49A4-9747-827C7BF3E83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29FE9BBC-C343-4DF5-B27E-1B16B3D0334B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29FE9BBC-C343-4DF5-B27E-1B16B3D0334B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29FE9BBC-C343-4DF5-B27E-1B16B3D0334B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29FE9BBC-C343-4DF5-B27E-1B16B3D0334B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

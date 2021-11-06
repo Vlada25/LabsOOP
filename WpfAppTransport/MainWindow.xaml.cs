@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TransportLibrary;
 
 namespace WpfAppTransport
@@ -28,6 +16,11 @@ namespace WpfAppTransport
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Adding data to table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Read_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -42,6 +35,11 @@ namespace WpfAppTransport
             
         }
 
+        /// <summary>
+        /// Adding missing info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Input_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -60,11 +58,21 @@ namespace WpfAppTransport
             }
         }
 
+        /// <summary>
+        /// Updating table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Update_Click(object sender, RoutedEventArgs e)
         {
             TransportGrid.ItemsSource = Service.GetTransportInfo(Service.TransportList);
         }
 
+        /// <summary>
+        /// Output price for selected transport and kind of sit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Output_Click(object sender, RoutedEventArgs e)
         {
             try

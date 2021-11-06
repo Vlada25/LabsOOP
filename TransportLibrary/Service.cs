@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using TransportLibrary.LandTransportKinds;
 
 namespace TransportLibrary
 {
     public class Service
     {
+        /// <summary>
+        /// Struct for view Transport object in table format
+        /// </summary>
         public struct TransportInfo
         {
             public int Id { get; }
@@ -31,6 +33,9 @@ namespace TransportLibrary
         const string Filepath = @"..\data.txt";
         public static List<Transport> TransportList = new List<Transport>();
 
+        /// <summary>
+        /// Reading data from file
+        /// </summary>
         public static void ReadData()
         {
             List<string> data = new List<string>();
@@ -51,6 +56,12 @@ namespace TransportLibrary
             }
         }
 
+        /// <summary>
+        /// Setting count of places for selected transport
+        /// </summary>
+        /// <param name="numOfItem">Index of transport in transport list</param>
+        /// <param name="kind">Kind of transport</param>
+        /// <param name="textBoxValues">Values from textBox</param>
         public static void SetCountOfPlaces(int numOfItem, string kind, string[] textBoxValues)
         {
             Exception exception = new Exception("Incorrect entered value");
@@ -102,6 +113,12 @@ namespace TransportLibrary
             }
         }
 
+        /// <summary>
+        /// Getting array of kinds of sits in transport
+        /// </summary>
+        /// <param name="numOfItem">Index of transport in transport list</param>
+        /// <param name="kind">Kind of transport</param>
+        /// <returns>Kinds of sits</returns>
         public static string[] SelectKindOfSits(int numOfItem, string kind)
         {
             Transport transport = TransportList[numOfItem];
@@ -123,6 +140,13 @@ namespace TransportLibrary
             }
         }
 
+        /// <summary>
+        /// Getting correspond price of ticket
+        /// </summary>
+        /// <param name="sitKind">Kind of sit</param>
+        /// <param name="numOfItem">Index of transport in transport list</param>
+        /// <param name="transportKind">Kind of transport</param>
+        /// <returns>Price</returns>
         public static double GetCorrespondingPrice(string sitKind, int numOfItem, string transportKind)
         {
             Transport transport = TransportList[numOfItem];
@@ -143,6 +167,12 @@ namespace TransportLibrary
                 return train.PriceList[train[sitKind]];
             }
         }
+
+        /// <summary>
+        /// Getting list of string describtion of transport
+        /// </summary>
+        /// <param name="transportList">List of transport</param>
+        /// <returns>List of transport info for table</returns>
         public static List<TransportInfo> GetTransportInfo(List<Transport> transportList)
         {
             List<TransportInfo> info = new List<TransportInfo>();
@@ -176,6 +206,11 @@ namespace TransportLibrary
             return info;
         }
 
+        /// <summary>
+        /// Getting short info about transport for combobox
+        /// </summary>
+        /// <param name="transportList">List of transport</param>
+        /// <returns>Short transport info</returns>
         public static List<string> GetShortTransportInfo(List<Transport> transportList)
         {
             int index = 0;

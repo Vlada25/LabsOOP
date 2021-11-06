@@ -13,6 +13,11 @@ namespace TransportLibrary
             EndPointIndex = 3,
             PriceIndex = 4;
 
+        /// <summary>
+        /// Creating object of the required type
+        /// </summary>
+        /// <param name="line">String with values</param>
+        /// <returns>Transport object</returns>
         public static Transport CreateObject(string line)
         {
             Transport transport;
@@ -36,6 +41,11 @@ namespace TransportLibrary
             return transport;
         }
 
+        /// <summary>
+        /// Getting list of prices
+        /// </summary>
+        /// <param name="data">All values</param>
+        /// <returns>List of prices</returns>
         private static double[] GetListOfPrices(string[] data)
         {
             double[] prices = new double[data.Length - PriceIndex];
@@ -48,6 +58,11 @@ namespace TransportLibrary
             return prices;
         }
 
+        /// <summary>
+        /// Getting int value
+        /// </summary>
+        /// <param name="value">Selected value</param>
+        /// <returns>Int value</returns>
         private static int GetInt(string value)
         {
             if(!int.TryParse(value, out int number))
@@ -58,6 +73,11 @@ namespace TransportLibrary
             return number;
         }
 
+        /// <summary>
+        /// Getting double value
+        /// </summary>
+        /// <param name="value">Selected value</param>
+        /// <returns>Double value</returns>
         private static double GetDouble(string value)
         {
             if (!double.TryParse(value, out double number))

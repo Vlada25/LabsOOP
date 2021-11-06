@@ -15,11 +15,17 @@ namespace TransportLibrary
             Kind = GetType().Name;
         }
 
-        protected int FindKindIndex(string kind, string[] values)
+        /// <summary>
+        /// Searching index of sit kind
+        /// </summary>
+        /// <param name="kind">Kind of sit</param>
+        /// <param name="values">Kinds array</param>
+        /// <returns>Index of kind</returns>
+        protected int FindKindIndex(string kind, string[] kindsList)
         {
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < kindsList.Length; i++)
             {
-                if (values[i] == kind)
+                if (kindsList[i] == kind)
                 {
                     return i;
                 }
@@ -28,8 +34,16 @@ namespace TransportLibrary
             throw new Exception($"Kind \"{kind}\" is not supported");
         }
 
+        /// <summary>
+        /// Getting count of all sits
+        /// </summary>
+        /// <returns></returns>
         public abstract int GetCountOfSits();
 
+        /// <summary>
+        /// Getting russian value of name of type
+        /// </summary>
+        /// <returns>New name</returns>
         public string GetKindName()
         {
             string result = "";
