@@ -9,7 +9,7 @@ namespace ArrayOperationLibrary
     /// <summary>
     /// Class for doing array operations
     /// </summary>
-    public class MyArray : IArrayOperation
+    public class MyArray
     {
         private double[] array;
 

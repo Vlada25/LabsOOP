@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IArrayOperation.cs" />
     <Compile Include="MyArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
