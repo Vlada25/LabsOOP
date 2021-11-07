@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppTransport"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="770">
+        Title="Главное окно" Height="550" Width="770">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 5 20 5" />
