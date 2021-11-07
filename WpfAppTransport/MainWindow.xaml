@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppTransport"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="825">
+        Title="MainWindow" Height="550" Width="770">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 5 20 5" />
-            <Setter Property="Width" Value="500" />
+            <Setter Property="Width" Value="450" />
             <Setter Property="Height" Value="30" />
         </Style>
         
@@ -42,11 +42,11 @@
             </DataGrid.RowStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="50"/>
-                <DataGridTextColumn Binding="{Binding Type}" Header="Тип" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Type}" Header="Тип" Width="130"/>
                 <DataGridTextColumn Binding="{Binding Number}" Header="Номер рейса" Width="100"/>
-                <DataGridTextColumn Binding="{Binding StartPoint}" Header="Пункт отправления" Width="200"/>
-                <DataGridTextColumn Binding="{Binding EndPoint}" Header="Пункт назначения" Width="200"/>
-                <DataGridTextColumn Binding="{Binding CountOfSits}" Header="Кол-во мест" Width="100"/>
+                <DataGridTextColumn Binding="{Binding StartPoint}" Header="Пункт отправления" Width="190"/>
+                <DataGridTextColumn Binding="{Binding EndPoint}" Header="Пункт назначения" Width="190"/>
+                <DataGridTextColumn Binding="{Binding CountOfSits}" Header="Кол-во мест" Width="84"/>
             </DataGrid.Columns>
         </DataGrid>
 
