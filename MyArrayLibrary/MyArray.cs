@@ -8,6 +8,7 @@ namespace MyArrayLibrary
     public class MyArray
     {
         private double[] array;
+        public int ArrLenght { get; }
 
         /// <summary>
         /// Constructor
@@ -16,8 +17,20 @@ namespace MyArrayLibrary
         public MyArray(double[] array)
         {
             this.array = array;
+            ArrLenght = array.Length;
         }
 
+        public double this[int index]
+        {
+            get
+            {
+                return array[index];
+            }
+            set
+            {
+                array[index] = value;
+            }
+        }
         /// <summary>
         /// Getting array
         /// </summary>
@@ -131,9 +144,14 @@ namespace MyArrayLibrary
         {
             string res = "[ ";
 
-            foreach (double val in array)
+            for (int i = 0; i < array.Length; i++)
             {
-                res += val + "; ";
+                res += Math.Round(array[i], 2);
+
+                if (i != array.Length - 1)
+                {
+                    res += ", ";
+                }
             }
 
             res += "]";

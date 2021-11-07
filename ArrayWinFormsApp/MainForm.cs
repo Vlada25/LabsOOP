@@ -1,18 +1,13 @@
 ﻿using MyArrayLibrary;
+using MyExceptionLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArrayWinFormsApp
 {
     public partial class MainForm : Form
     {
+        public static MyArray MainArray;
         public MainForm()
         {
             InitializeComponent();
@@ -20,12 +15,79 @@ namespace ArrayWinFormsApp
 
         private void ArrayLenBtn_Click(object sender, EventArgs e)
         {
-            if(!int.TryParse(arrayLenInput.Text, out int len) || len < 0)
+            try
             {
-                throw new Exception("You should input natural number");
-            }
+                if (!int.TryParse(arrayLenInput.Text, out int len) || len < 0)
+                {
+                    throw new MyException("You should input natural number", arrayLenInput.Text);
+                }
 
-            MyArray mainArray = new MyArray(new double[len]);
+                MainArray = Service.CreateArrayByRandom(len);
+
+                arrayLabel.Text = $"Массив: {MainArray}";
+            }
+            catch (MyException error)
+            {
+                MessageBox.Show($"{error.Message} (Incorrect: {error.Value})");
+            }
+        }
+
+        private void SumBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MainArray == null)
+                {
+                    throw new MyException("You should generate the main array");
+                }
+
+                SumForm sumForm = new SumForm();
+                sumForm.Show();
+            }
+            catch(MyException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void MultiplyBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MainArray == null)
+                {
+                    throw new MyException("You should generate the main array");
+                }
+
+                double value = Convert.ToDouble(multiplyInput.Text);
+                MainArray = MainArray * value;
+
+                arrayLabel.Text = $"Массив: {MainArray}";
+            }
+            catch (MyException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void DivideBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MainArray == null)
+                {
+                    throw new MyException("You should generate the main array");
+                }
+
+                double value = Convert.ToDouble(divideInput.Text);
+                MainArray = MainArray / value;
+
+                arrayLabel.Text = $"Массив: {MainArray}";
+            }
+            catch (MyException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
     }
 }
