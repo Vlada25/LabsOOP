@@ -1,12 +1,11 @@
-﻿using ArrayOperationLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using MyArrayLibrary;
 using System.Threading.Tasks;
 
-namespace UnitTestLab2
+namespace MyArrayTestProgect
 {
     [TestClass]
-    public class UnitTestMyArray
+    public class MyArrayTest
     {
         [TestMethod]
         public void GetArray_ReturnArray()
