@@ -10,7 +10,6 @@ namespace WpfAppTransport
     /// </summary>
     public partial class PriceWindow : Window
     {
-        private string selectedTransportKind;
         private int transportIndex;
         public PriceWindow()
         {
@@ -35,9 +34,8 @@ namespace WpfAppTransport
         private void TransportSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             transportIndex = TransportSelector.SelectedIndex;
-            selectedTransportKind = Convert.ToString(TransportSelector.SelectedItem).Split(' ')[1];
 
-            KindSelector.ItemsSource = Service.SelectKindOfSits(transportIndex, selectedTransportKind);
+            KindSelector.ItemsSource = Service.SelectKindOfSits(transportIndex);
         }
 
         /// <summary>
@@ -56,7 +54,7 @@ namespace WpfAppTransport
                     throw new Exception("Kind of sit doesn't select");
                 }
 
-                MessageBox.Show($"Цена: {Convert.ToString(Service.GetCorrespondingPrice(selectedSitKind, transportIndex, selectedTransportKind))} p.");
+                MessageBox.Show($"Цена: {Convert.ToString(Service.GetCorrespondingPrice(selectedSitKind, transportIndex))} p.");
             }
             catch (Exception error)
             {

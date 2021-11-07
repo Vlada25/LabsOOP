@@ -34,10 +34,9 @@ namespace WpfAppTransport
             try
             {
                 int numOfItem = TransportSelector.SelectedIndex;
-                string kind = Convert.ToString(TransportSelector.SelectedItem).Split(' ')[1];
                 string[] textBoxValues = countOfSitsEnter.Text.Split(' ');
 
-                Service.SetCountOfPlaces(numOfItem, kind, textBoxValues);
+                Service.SetCountOfPlaces(numOfItem, textBoxValues);
 
                 MessageBox.Show("Данные добавлены. Обновите таблицу");
 

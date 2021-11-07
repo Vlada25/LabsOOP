@@ -60,11 +60,12 @@ namespace TransportLibrary
         /// Setting count of places for selected transport
         /// </summary>
         /// <param name="numOfItem">Index of transport in transport list</param>
-        /// <param name="kind">Kind of transport</param>
         /// <param name="textBoxValues">Values from textBox</param>
-        public static void SetCountOfPlaces(int numOfItem, string kind, string[] textBoxValues)
+        public static void SetCountOfPlaces(int numOfItem, string[] textBoxValues)
         {
             Exception exception = new Exception("Incorrect entered value");
+            Transport transport = TransportList[numOfItem];
+            string kind = transport.GetKindName();
 
             if (textBoxValues.Length != 1)
             {
@@ -78,8 +79,6 @@ namespace TransportLibrary
             {
                 throw exception;
             }
-
-            Transport transport = TransportList[numOfItem];
 
             if (kind == "Самолёт")
             {
@@ -117,11 +116,11 @@ namespace TransportLibrary
         /// Getting array of kinds of sits in transport
         /// </summary>
         /// <param name="numOfItem">Index of transport in transport list</param>
-        /// <param name="kind">Kind of transport</param>
         /// <returns>Kinds of sits</returns>
-        public static string[] SelectKindOfSits(int numOfItem, string kind)
+        public static string[] SelectKindOfSits(int numOfItem)
         {
             Transport transport = TransportList[numOfItem];
+            string kind = transport.GetKindName();
 
             if (kind == "Самолёт")
             {
@@ -145,11 +144,11 @@ namespace TransportLibrary
         /// </summary>
         /// <param name="sitKind">Kind of sit</param>
         /// <param name="numOfItem">Index of transport in transport list</param>
-        /// <param name="transportKind">Kind of transport</param>
         /// <returns>Price</returns>
-        public static double GetCorrespondingPrice(string sitKind, int numOfItem, string transportKind)
+        public static double GetCorrespondingPrice(string sitKind, int numOfItem)
         {
             Transport transport = TransportList[numOfItem];
+            string transportKind = transport.GetKindName();
 
             if (transportKind == "Самолёт")
             {
