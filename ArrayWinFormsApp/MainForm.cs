@@ -28,7 +28,7 @@ namespace ArrayWinFormsApp
             }
             catch (MyException error)
             {
-                MessageBox.Show($"{error.Message} (Incorrect: {error.Value})");
+                MessageBox.Show($"{error.Message} (Incorrect: {error.Value})", "Error!");
             }
         }
 
@@ -46,7 +46,7 @@ namespace ArrayWinFormsApp
             }
             catch(MyException error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Error!");
             }
         }
 
@@ -66,7 +66,7 @@ namespace ArrayWinFormsApp
             }
             catch (MyException error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Error!");
             }
         }
 
@@ -86,7 +86,7 @@ namespace ArrayWinFormsApp
             }
             catch (MyException error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Error!");
             }
         }
     }
